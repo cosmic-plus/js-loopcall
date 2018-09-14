@@ -11,20 +11,20 @@
  * @example
  * const callBuilder = server.transactions().forAccount('GDE...YBX')
  * const allTransactions = await loopcall(callBuilder)
- * const transactionWithoutMemo = await loopcall(callBuilder, {
+ * const transactionsWithoutMemo = await loopcall(callBuilder, {
  *   filter: (tx) => !tx.memo
- * }
+ * })
  * const thisYearTransactions = await loopcall(callBuilder, {
  *   breaker: (tx) => tx.created_at.substr(0,4) < 2018
- * }
+ * })
  * 
  * @example
  * const callBuilder = server.operations().order('asc')
- * const 2000firstOperations = await loopcall(callBuilder, { limit: 2000 })
- * const 20firstAccountCreations = await loopcall(callBuilder, {
+ * const the2000firstOperations = await loopcall(callBuilder, { limit: 2000 })
+ * const the20firstAccountCreations = await loopcall(callBuilder, {
  *   limit: 20,
  *   filter: (op) => op.type === 'create_account'
- * }
+ * })
  * 
  * @param {CallBuilder} callBuilder A CallBuilder object
  * @param {Object} [options]

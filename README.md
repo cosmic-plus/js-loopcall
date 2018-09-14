@@ -19,7 +19,7 @@ To get an arbitrary amount of record:
 
 ```js
 const callBuilder = server.operations().order('asc')
-const 2000FirstOperations = await loopcall(callBuilder, { limit: 2000 })
+const the2000FirstOperations = await loopcall(callBuilder, { limit: 2000 })
 ```
 
 To get all existing records (take care with that one!):
@@ -37,7 +37,7 @@ To stop fetching records when a condition is met:
 const callBuilder = server.transactions().forAccount('GDE...YBX')
 const thisYearTransactions = await loopcall(callBuilder, {
   breaker: (record) => record.created_at.substr(0,4) < 2018
-}
+})
 ```
 
 `breaker` is a *Function* that is called over each fetched record. Once it 
@@ -50,9 +50,9 @@ To filter records by condition:
 
 ```js
 const callBuilder = server.transactions().forAccount('GDE...YBX')
-const transactionWithoutMemo = await loopcall(callBuilder, {
+const transactionsWithoutMemo = await loopcall(callBuilder, {
     filter: (record) => !record.memo
-}
+})
 ```
 
 `filter`is a *Function* that is called over each fetched record. When provided, 
@@ -94,11 +94,11 @@ function iterateOver1000RecordsMax () {
   }
 }
 
-const 20firstAccountCreations = await loopcall(callBuilder, {
+const the20firstAccountCreations = await loopcall(callBuilder, {
    limit: 20,
    breaker: iterateOver1000RecordsMax(),
    filter: (record) => record.type === 'create_account'
-}
+})
 ```
 
 When both are provided, `breaker` is called before `filter`.

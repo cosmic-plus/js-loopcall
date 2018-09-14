@@ -1,15 +1,24 @@
 {
   "name": "@cosmic-plus/loopcall",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A library that enable unlimited complex queries to Horizon nodes.",
   "main": "loopcall.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "standard --fix '**.js'",
+    "format": "standard --fix '**.js'"
   },
-  "keywords": ["stellar", "horizon", "unlimited", "complex", "queries"],
-  "homepage": "https://github.com/CosmicPlus/",
+  "keywords": [
+    "stellar",
+    "horizon",
+    "unlimited",
+    "complex",
+    "queries"
+  ],
+  "homepage": "https://github.com/CosmicPlus/node-loopcall",
   "author": "Mister.Ticot",
   "license": "MIT",
   "repository": "github:CosmicPlus/node-loopcall",
+  "dependencies": {
+    "stellar-sdk": "^0.10.3"
+  }
 }
