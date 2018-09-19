@@ -14,10 +14,9 @@
     "complex",
     "queries"
   ],
-  "homepage": "https://github.com/CosmicPlus/node-loopcall",
   "author": "Mister.Ticot",
   "license": "MIT",
-  "repository": "github:CosmicPlus/node-loopcall",
+  "repository": "github:cosmic-plus/node-loopcall",
   "dependencies": {
     "stellar-sdk": "^0.10.3"
   }
