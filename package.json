@@ -18,6 +18,6 @@
   "license": "MIT",
   "repository": "github:cosmic-plus/node-loopcall",
   "dependencies": {
-    "stellar-sdk": "^0.10.3"
+    "stellar-sdk": "^0.11.0"
   }
 }
