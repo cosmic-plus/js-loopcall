@@ -1,4 +1,4 @@
-'use_strict'
+"use_strict"
 /**
  * Concatenate records from `callBuilder` call response that pass `options.filter`
  * until `options.limit` is reached, `options.breaker` returns a true value or
