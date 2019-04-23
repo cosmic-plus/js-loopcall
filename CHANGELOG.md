@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
+- Bundle transpiled ES5 code within the package.
 - Tests.
 
 ## Older Releases
