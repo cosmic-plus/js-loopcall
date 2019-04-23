@@ -5,11 +5,11 @@
   "author": "MisterTicot",
   "repository": "github:cosmic-plus/node-loopcall",
   "license": "MIT",
-  "main": "loopcall.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prettier": "prettier --write --no-semi '*.md' '*.json' '*.js' 'test/*.js'",
-    "eslint": "eslint --fix '*.js' 'test/*.js'",
+    "prettier": "prettier --write --no-semi 'test/*.js' 'src/*.js' '*.json' '*.md'",
+    "eslint": "eslint --fix 'test/*.js' 'src/*.js'",
     "lint": "npm run prettier && npm run eslint"
   },
   "keywords": [
