@@ -3,11 +3,11 @@
  * Concatenate records from `callBuilder` call response that pass `options.filter`
  * until `options.limit` is reached, `options.breaker` returns a true value or
  * no more are available.
- * 
+ *
  * **Warning**: Please be aware that unlimited loopcall can iterate over the
  * full set of data available on a network, sending thousands of request to the
  * API. Please use it wisely :)
- * 
+ *
  * @example
  * const callBuilder = server.transactions().forAccount('GDE...YBX')
  * const allTransactions = await loopcall(callBuilder)
@@ -17,7 +17,7 @@
  * const thisYearTransactions = await loopcall(callBuilder, {
  *   breaker: (tx) => tx.created_at.substr(0,4) < 2018
  * })
- * 
+ *
  * @example
  * const callBuilder = server.operations().order('asc')
  * const the2000firstOperations = await loopcall(callBuilder, { limit: 2000 })
@@ -25,7 +25,7 @@
  *   limit: 20,
  *   filter: (op) => op.type === 'create_account'
  * })
- * 
+ *
  * @param {CallBuilder} callBuilder A CallBuilder object
  * @param {Object} [options]
  * @param {integer} [options.limit] The maximum number of record to return
@@ -51,7 +51,7 @@ module.exports = async function (callBuilder, options = {}) {
 /**
  * Concatenate records from `callAnswer` pages until `limit` is reached or no
  * more are available.
- * 
+ *
  * @param {Object} callAnswer A resolved CallBuilder.call() object
  * @param {integer} limit The maximum number of record to return
  * @returns {Array} The fetched records
@@ -73,7 +73,7 @@ async function loop (callAnswer, limit) {
     records = records.concat(callAnswer.records)
     callAnswer = await callAnswer.next()
   }
-  
+
   return records
 }
 
@@ -81,7 +81,7 @@ async function loop (callAnswer, limit) {
  * Concatenate records from `callAnswer` pages that pass `options.filter` until
  * `options.limit` is reached, `options.breaker` returns a true value or no more
  * are available.
- * 
+ *
  * @param {Object} callAnswer A resolved CallBuilder.call() object
  * @param {Object} [options]
  * @param {integer} [options.limit] The maximum number of record to return
@@ -95,7 +95,7 @@ async function loop (callAnswer, limit) {
  */
 async function loopWithBreakpoints (callAnswer, options) {
   const records = []
-  
+
   while (callAnswer.records.length) {
     for (let index in callAnswer.records) {
       if (options.limit && records.length === options.limit) return records
@@ -112,6 +112,6 @@ async function loopWithBreakpoints (callAnswer, options) {
     }
     callAnswer = await callAnswer.next()
   }
-  
+
   return records
 }

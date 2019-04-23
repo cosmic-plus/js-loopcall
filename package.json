@@ -8,7 +8,9 @@
   "main": "loopcall.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint --fix *.js"
+    "prettier": "prettier --write --no-semi '*.md' '*.json' '*.js' 'test/*.js'",
+    "eslint": "eslint --fix '*.js' 'test/*.js'",
+    "lint": "npm run prettier && npm run eslint"
   },
   "keywords": [
     "stellar",
@@ -18,7 +20,8 @@
     "queries"
   ],
   "devDependencies": {
-    "eslint": "^5.8.0"
+    "eslint": "^5.8.0",
+    "prettier": "^1.17.0"
   },
   "dependencies": {
     "stellar-sdk": "^0.11.0"
