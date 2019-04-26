@@ -1,6 +1,6 @@
 {
   "name": "@cosmic-plus/loopcall",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A library that enable unlimited complex queries to Horizon nodes.",
   "author": "MisterTicot",
   "repository": "github:cosmic-plus/node-loopcall",
