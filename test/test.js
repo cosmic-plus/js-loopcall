@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-const loopcall = require("../loopcall")
+const loopcall = require("../src")
 const StellarSdk = require("stellar-sdk")
 
 const server = new StellarSdk.Server("https://horizon.stellar.org")
