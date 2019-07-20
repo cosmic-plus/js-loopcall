@@ -1,6 +1,6 @@
 {
   "name": "@cosmic-plus/loopcall",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A library that enable unlimited complex queries to Horizon nodes.",
   "author": "MisterTicot",
   "homepage": "https://cosmic.plus/#view:js-loopcall",
@@ -26,15 +26,15 @@
     "node"
   ],
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "eslint": "^5.16.0",
-    "prettier": "^1.18.0"
+    "prettier": "^1.18.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.4.3",
+    "@babel/runtime": "^7.5.5",
     "stellar-sdk": "^2.0.1"
   }
 }
