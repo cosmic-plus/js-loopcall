@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+- Update [stellar-sdk] to 2.0.1.
 - Improve discoverability (add badges, keywords, set homepage...).
 
 ## 1.1.1 - 2019-06-07
