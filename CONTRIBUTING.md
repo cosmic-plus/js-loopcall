@@ -37,7 +37,7 @@ npm run lint
 git ci ...
 ```
 
-Please sign commits with your PGP key.
+Please sign your commits with your PGP key.
 
 **Release:**
 
@@ -46,10 +46,11 @@ First of all update the package version into `package.json`.
 ```
 export version={semver}
 npm update
-npm run release
+npm run make-release
+npm run publish-release
 ```
 
-Please sign commits and tags with your PGP key.
+Please sign your commits and tags with your PGP key.
 
 ## Scripts
 
@@ -58,5 +59,5 @@ Those helpers require a POSIX shell.
 - `npm run lint`: Lint code. (**Before each commit**)
 - `npm run build`: Build the transpiled code.
 - `npm run watch`: Automatically transpile code after each change.
-- `version={semver} npm run release`: Build, commit, push & publish release
-  {semver}.
+- `version={semver} npm run make-release`: Build & locally commit release.
+- `version={semver} npm run publish-release`: Tag, push & publish release.
