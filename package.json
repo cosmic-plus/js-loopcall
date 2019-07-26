@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "stellar-sdk": "^2.0.1"
+    "stellar-sdk": "^2.1.1"
   }
 }
