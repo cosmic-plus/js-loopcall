@@ -14,7 +14,13 @@
     "eslint": "eslint --fix 'test/*.js' 'src/*.js' '*.js'",
     "lint": "npm run prettier && npm run eslint",
     "build": "babel --delete-dir-on-start --out-dir es5 src",
-    "watch": "babel --watch --delete-dir-on-start --out-dir es5 src"
+    "watch": "babel --watch --delete-dir-on-start --out-dir es5 src",
+    "commit-release": "[ \"$version\" ] && git ci -am \"Release $version\"",
+    "build-release": "npm run build && npm run commit-release",
+    "tag-release": "[ \"$version\" ] && git tag -s \"$version\" -m \"Release $version\"",
+    "push-release": "git push && git push --tags",
+    "publish-release": "npm run tag-release && npm run push-release && npm publish",
+    "release": "npm run build-release && npm run publish-release"
   },
   "keywords": [
     "stellar",
