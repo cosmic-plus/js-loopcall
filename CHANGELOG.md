@@ -13,6 +13,8 @@ All notable changes to this project will be documented in this file.
 ### Changed
 
 - Update [stellar-sdk] to 2.1.1.
+- Add CONTRIBUTING.md.
+- Improve build scripts.
 
 ## 1.1.2 - 2019-07-20
 
