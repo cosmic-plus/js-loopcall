@@ -4,11 +4,11 @@ Welcome to new contributors! This project is open to input & edits.
 
 **Bugs & feature requests**
 
-Please check the [dedicated form](https://github.com/cosmic-plus/js-{{name}}/issues/new/choose).
+Please check the [dedicated form](https://github.com/cosmic-plus/js-loopcall/issues/new/choose).
 
 **Pull request**
 
-1. Fork [js-{{name}}](https://github.com/cosmic-plus/js-{{name}}).
+1. Fork [js-loopcall](https://github.com/cosmic-plus/js-loopcall).
 2. Commit your changes to the fork.
 3. Create a pull request.
 
@@ -27,7 +27,7 @@ If you want to implement a new feature, please get in touch first:
 **Clone:**
 
 ```
-git clone https://git.cosmic.plus/js-{{name}}
+git clone https://git.cosmic.plus/js-loopcall
 ```
 
 **Commit:**
