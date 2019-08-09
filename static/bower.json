@@ -1,0 +1,26 @@
+{
+  "name": "cosmic-plus-loopcall",
+  "description": "Implements limitless advanced queries to Stellar Horizon nodes",
+  "authors": [
+    "MisterTicot"
+  ],
+  "homepage": "https://cosmic.plus/#view:js-loopcall",
+  "licence": "MIT",
+  "keywords": [
+    "stellar",
+    "horizon",
+    "limitless",
+    "advanced",
+    "queries",
+    "browser",
+    "node"
+  ],
+  "main": "loopcall.js",
+  "ignore": [
+    ".*",
+    "package-lock.json"
+  ],
+  "dependencies": {
+    "stellar-sdk": "^2.0.1"
+  }
+}

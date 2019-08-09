@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Added
+
+- Add web bundle. The web bundle repository is at
+  <https://git.cosmic.plus/js-loopcall-web>. The script file can be downloaded
+  from <https://cdn.cosmic.plus/loopcall>.
+
 ## 1.1.4 - 2019-07-26
 
 ### Fixed
