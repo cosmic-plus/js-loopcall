@@ -1,3 +1,8 @@
+**loopcall /**
+[Readme](README.md)
+• [Contributing](CONTRIBUTING.md)
+• [Changelog](CHANGELOG.md)
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
@@ -9,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - Add web bundle. The web bundle repository is at
   <https://git.cosmic.plus/js-loopcall-web>. The script file can be downloaded
   from <https://cdn.cosmic.plus/loopcall>.
+- Add documentation header navigation.
 
 ## 1.1.4 - 2019-07-26
 

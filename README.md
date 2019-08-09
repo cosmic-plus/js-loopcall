@@ -1,4 +1,9 @@
-# @cosmic-plus/loopcall
+**loopcall /**
+[Readme](README.md)
+• [Contributing](CONTRIBUTING.md)
+• [Changelog](CHANGELOG.md)
+
+# Readme
 
 ![Licence](https://img.shields.io/github/license/cosmic-plus/js-loopcall.svg)
 [![Dependencies](https://img.shields.io/david/cosmic-plus/js-loopcall)](https://david-dm.org/cosmic-plus/js-loopcall)

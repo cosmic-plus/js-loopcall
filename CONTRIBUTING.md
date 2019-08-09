@@ -1,3 +1,8 @@
+**loopcall /**
+[Readme](README.md)
+• [Contributing](CONTRIBUTING.md)
+• [Changelog](CHANGELOG.md)
+
 # Contributing
 
 Welcome to new contributors! This project is open to input & edits.
