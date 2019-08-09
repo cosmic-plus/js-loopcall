@@ -1,6 +1,6 @@
 {
   "name": "@cosmic-plus/loopcall",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "Implements limitless advanced queries to Stellar Horizon nodes",
   "author": "MisterTicot <mister.ticot@cosmic.plus>",
   "homepage": "https://cosmic.plus/#view:js-loopcall",
@@ -58,6 +58,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
-    "stellar-sdk": "^2.1.1"
+    "stellar-sdk": "^2.2.3"
   }
 }
