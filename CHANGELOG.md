@@ -7,6 +7,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## Unreleased
+
+### Fixed
+
+- Meta: Don't include `web/` in NPM package.
+
 ## 1.2.0 - 2019-08-10
 
 ### Added
