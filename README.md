@@ -1,7 +1,7 @@
 **loopcall /**
-[Readme](README.md)
-• [Contributing](CONTRIBUTING.md)
-• [Changelog](CHANGELOG.md)
+[Readme](https://cosmic.plus/#view:js-loopcall)
+• [Contributing](https://cosmic.plus/#view:js-loopcall/CONTRIBUTING)
+• [Changelog](https://cosmic.plus/#view:js-loopcall/CHANGELOG)
 
 # Readme
 

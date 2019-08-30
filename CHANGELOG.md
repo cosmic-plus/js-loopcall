@@ -1,7 +1,7 @@
 **loopcall /**
-[Readme](README.md)
-• [Contributing](CONTRIBUTING.md)
-• [Changelog](CHANGELOG.md)
+[Readme](https://cosmic.plus/#view:js-loopcall)
+• [Contributing](https://cosmic.plus/#view:js-loopcall/CONTRIBUTING)
+• [Changelog](https://cosmic.plus/#view:js-loopcall/CHANGELOG)
 
 # Changelog
 
@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file.
 - Meta: Remove stellar-sdk dependency. While loopcall consumes StellarSdk
   _Callbuilder_, strictly speaking its code doesn't rely on StellarSdk.
 - Documentation: Update contributing guidelines.
+- Documentation: Update navigation header. Links now points to Cosmic.plus
+  website.
 
 ## 1.2.1 - 2019-08-17
 
