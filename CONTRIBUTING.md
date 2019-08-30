@@ -9,7 +9,7 @@ Welcome to new contributors! This project is open to input & edits.
 
 ## Bug Reports & Feature Requests
 
-Please use the [dedicated form](https://github.com/cosmic-plus/js-oc-multisig/issues/new/choose).
+Please use the [dedicated form](https://github.com/cosmic-plus/js-loopcall/issues/new/choose).
 
 ## Pull Requests
 
@@ -25,6 +25,7 @@ If you want to implement a new feature, please get in touch first:
 
 - `es5/`: JS transpiled code (generated at build time, not commited).
 - `src/`: JS source code.
+- `static/`: Static files, added to `web/` at build time.
 - `test/`: Test suite.
 - `web/`: JS bundled code (generated at build time, commited in a submodule).
 
@@ -65,6 +66,7 @@ Those helpers require a POSIX shell.
 
 - `npm run get`: Fetch the `web` sub-repository.
 - `npm run lint`: Lint code.
+- `npm run clean`: Clean the `web/` directory.
 - `npm run watch`: Automatically transpile & bundle code after each change.
 - `npm run build`: Build the production transpiled code & browser bundle.
 - `npm run check`: Check the production browser bundle integrity.

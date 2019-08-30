@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 
 - Meta: Remove stellar-sdk dependency. While loopcall consumes StellarSdk
   _Callbuilder_, strictly speaking its code doesn't rely on StellarSdk.
+- Documentation: Update contributing guidelines.
 
 ## 1.2.1 - 2019-08-17
 
