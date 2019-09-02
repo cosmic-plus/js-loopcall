@@ -31,16 +31,14 @@ In your script: `const loopcall = require("@cosmic-plus/loopcall")`
 In your HTML:
 
 ```HTML
-<script src="./bower_components/stellar-sdk/stellar-sdk.min.js"></script>
 <script src="./bower_components/cosmic-plus-loopcall/loopcall.js"></script>
 ```
 
 ### HTML
 
-n your HTML:
+In your HTML:
 
 ```HTML
-<script src="https://cdn.cosmic.plus/stellar-sdk"></script>
 <script src="https://cdn.cosmic.plus/loopcall@1.x"></script>
 ```
 
