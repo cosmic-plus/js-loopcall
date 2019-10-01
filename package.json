@@ -8,6 +8,7 @@
   "license": "MIT",
   "main": "src/index.js",
   "module": "es5/index.js",
+  "codeship": "09be3150-c618-0137-89ba-4a7bef1c9b94",
   "keywords": [
     "stellar",
     "horizon",
@@ -18,7 +19,7 @@
     "node"
   ],
   "scripts": {
-    "test": "jasmine 'test/**/*.spec.js'",
+    "test": "nyc --temp-dir=node_modules/nyc/tmp jasmine 'test/**/*.spec.js'",
     "get": "git submodule update -i --recursive",
     "clean": "rm -rf web/*",
     "prettier": "prettier --write --no-semi '{src,test}/**/*.{js,json,md}' '*.{js,json,md}'",
@@ -54,6 +55,7 @@
     "@babel/preset-env": "^7.6.0",
     "eslint": "^6.4.0",
     "jasmine": "^3.4.0",
+    "nyc": "^14.1.1",
     "prettier": "^1.18.2",
     "stellar-sdk": "^3.0.1",
     "webpack": "^4.40.2",
