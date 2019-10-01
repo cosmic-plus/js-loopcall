@@ -16,6 +16,12 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000
 /* Specs */
 
 describe("loopcall", () => {
+  it("fetches less than 200 records", async () => {
+    const callBuilder = server.operations().order("desc")
+    const records = await loopcall(callBuilder, { limit: 50 })
+    expect(records.length).toBe(50)
+  })
+
   it("fetches more than 200 records", async () => {
     const callBuilder = server.operations().order("desc")
     const records = await loopcall(callBuilder, { limit: 250 })
