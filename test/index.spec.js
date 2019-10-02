@@ -1,4 +1,4 @@
-/* global describe it expect jasmine */
+/* eslint-env jasmine */
 "use strict"
 
 const StellarSdk = require("stellar-sdk")
