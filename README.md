@@ -6,10 +6,12 @@
 # Readme
 
 ![Licence](https://img.shields.io/github/license/cosmic-plus/js-loopcall.svg)
+![Build](https://img.shields.io/codeship/09be3150-c618-0137-89ba-4a7bef1c9b94)
+[![Coverage](https://coveralls.io/repos/github/cosmic-plus/js-loopcall/badge.svg)](https://coveralls.io/github/cosmic-plus/js-loopcall)
 [![Dependencies](https://badgen.net/david/dep/cosmic-plus/js-loopcall)](https://david-dm.org/cosmic-plus/js-loopcall)
 ![Vulnerabilities](https://snyk.io/test/npm/@cosmic-plus/loopcall/badge.svg)
-![Size](https://badgen.net/bundlephobia/minzip/@cosmic-plus/loopcall)
 ![Downloads](https://badgen.net/npm/dt/@cosmic-plus/loopcall)
+![Bundle](https://badgen.net/badgesize/gzip/cosmic-plus/js-loopcall-web/master/loopcall.js?label=bundle)
 
 **Loopcall** is a tiny library that enable unlimited complex queries to Horizon
 nodes. It takes a _CallBuilder_ and accept a few optional parameter. It returns
