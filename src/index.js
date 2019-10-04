@@ -1,40 +1,115 @@
 "use_strict"
 /**
- * Concatenate records from `callBuilder` call response that pass `options.filter`
- * until `options.limit` is reached, `options.breaker` returns a true value or
- * no more are available.
+ * **Loopcall** is a tiny library that enables unlimited complex queries to
+ * Horizon nodes. It takes a _CallBuilder_ and accepts a few optional
+ * parameters. It returns an array of records similar to the ones returned by
+ * `CallBuilder.call()`.
  *
- * **Warning**: Please be aware that unlimited loopcall can iterate over the
- * full set of data available on a network, sending thousands of request to the
- * API. Please use it wisely :)
+ *  @module
+ */
+
+/**
+ * **Fetch more than 200 records**
  *
- * @example
- * const callBuilder = server.transactions().forAccount('GDE...YBX')
+ * To get an arbitrary amount of record:
+ *
+ * ```js
+ * const callBuilder = server.operations().order("asc")
+ * const the2000FirstOperations = await loopcall(callBuilder, { limit: 2000 })
+ * ```
+ *
+ * To get all existing records (take care with that one!):
+ *
+ * ```js
+ * const callBuilder = server.transactions().forAccount("GDE...YBX")
  * const allTransactions = await loopcall(callBuilder)
- * const transactionsWithoutMemo = await loopcall(callBuilder, {
- *   filter: (tx) => !tx.memo
- * })
- * const thisYearTransactions = await loopcall(callBuilder, {
- *   breaker: (tx) => tx.created_at.substr(0,4) < 2018
- * })
+ * ```
  *
- * @example
- * const callBuilder = server.operations().order('asc')
- * const the2000firstOperations = await loopcall(callBuilder, { limit: 2000 })
+ * **Conditional Break**
+ *
+ * To stop fetching records when a condition is met:
+ *
+ * ```js
+ * const callBuilder = server.transactions().forAccount("GDE...YBX")
+ * const thisYearTransactions = await loopcall(callBuilder, {
+ *   breaker: record => record.created_at.substr(0, 4) < 2018
+ * })
+ * ```
+ *
+ * `breaker` is a _Function_ that is called over each fetched record. Once it
+ * returns `true`, the fetching loop breaks and the record that triggered the
+ * break is discarded.
+ *
+ * **Conditional Filtering**
+ *
+ * To filter records by condition:
+ *
+ * ```js
+ * const callBuilder = server.transactions().forAccount("GDE...YBX")
+ * const transactionsWithoutMemo = await loopcall(callBuilder, {
+ *   filter: record => !record.memo
+ * })
+ * ```
+ *
+ * `filter` is a _Function_ that is called over each fetched record. When
+ * provided, the records are added to the query results only when it returns
+ * `true`.
+ *
+ * **Iterating over records on-the-fly**
+ *
+ * In some situations waiting for the result to be concatenated is not an
+ * option. `breaker` offers the possibility of iterating over records while they
+ * are fetched:
+ *
+ * ```js
+ * const callBuilder = server.transactions()
+ *
+ * async function showTxUntilScreenIsFilled(record) {
+ *   displayTxUsingRecord(record)
+ *   await endOfPageReached()
+ * }
+ *
+ * loopcall(callBuilder, { breaker: showTxUntilScreenIsFilled })
+ * ```
+ *
+ * This example shows a part of the code to implement unlimited scrolling on a
+ * webpage showing the last transactions on a Stellar network. As
+ * `showTxUntilScreenIsFilled` never returns `true`, the loop never breaks.
+ *
+ * **Combining parameters**
+ *
+ * All those parameters may be combined together:
+ *
+ * ```js
+ * const callBuilder = server.operations().order("asc")
+ *
+ * function iterateOver1000RecordsMax() {
+ *   let counter = 0
+ *   return function() {
+ *     counter++
+ *     if (counter > 1000) return true
+ *   }
+ * }
+ *
  * const the20firstAccountCreations = await loopcall(callBuilder, {
  *   limit: 20,
- *   filter: (op) => op.type === 'create_account'
+ *   breaker: iterateOver1000RecordsMax(),
+ *   filter: record => record.type === "create_account"
  * })
+ * ```
  *
+ * When both are provided, `breaker` is called before `filter`.
+ *
+ * @alias loopcall
  * @param {CallBuilder} callBuilder A CallBuilder object
  * @param {Object} [options]
- * @param {integer} [options.limit] The maximum number of record to return
- * @param {function} [options.filter] A function that accept a record argument. It
- *   is called with each fetched record. If it returns a true value, the record
- *   is added to returned records, else it is discarded.
- * @param {function} [options.breaker] A function that accept a record argument.
- *   It is called with each fetched record. If it returns a true value, the loop
- *   ends and the array of the filtered records is returned.
+ * @param {Integer} [options.limit] The maximum number of record to return
+ * @param {Function} [options.filter] A function that accepts a record argument.
+ * It is called with each fetched record. If it returns a true value, the record
+ * is added to returned records, else it is discarded.
+ * @param {Function} [options.breaker] A function that accepts a record
+ * argument. It is called with each fetched record. If it returns a true value,
+ * the loop ends and the array of the filtered records is returned.
  * @returns {Array} The fetched records
  */
 module.exports = async function (callBuilder, options = {}) {
@@ -52,6 +127,7 @@ module.exports = async function (callBuilder, options = {}) {
  * Concatenate records from `callAnswer` pages until `limit` is reached or no
  * more are available.
  *
+ * @private
  * @param {Object} callAnswer A resolved CallBuilder.call() object
  * @param {integer} limit The maximum number of record to return
  * @returns {Array} The fetched records
@@ -82,6 +158,7 @@ async function loop (callAnswer, limit) {
  * `options.limit` is reached, `options.breaker` returns a true value or no more
  * are available.
  *
+ * @private
  * @param {Object} callAnswer A resolved CallBuilder.call() object
  * @param {Object} [options]
  * @param {integer} [options.limit] The maximum number of record to return
