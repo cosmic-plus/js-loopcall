@@ -19,6 +19,19 @@ Versioning](https://semver.org/spec/v2.0.0.html)**. Version syntax is
 backward-compatibility and can be updated to without risk of breakage. For major
 releases, please check this changelog before upgrading.
 
+## 1.4.0 - 2019-10-05
+
+### Added
+
+- Meta: Continuous integration setup. This is a first attempt at integrating
+  Codeship.com and Coveralls.io into the Cosmic.plus publishing process.
+
+### Changed
+
+- Documentation: Use `filter` for on-the-fly iteration. This makes more sense
+  than using `breaker`, as the `filter` callback can both filter and process
+  records - leaving `breaker` free for its true purpose.
+
 ## 1.3.1 - 2019-09-14
 
 ### Changed
