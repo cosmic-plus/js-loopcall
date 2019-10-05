@@ -58,7 +58,7 @@
  * **Iterating over records on-the-fly**
  *
  * In some situations waiting for the result to be concatenated is not an
- * option. `breaker` offers the possibility of iterating over records while they
+ * option. `filter` offers the possibility of iterating over records while they
  * are fetched:
  *
  * ```js
@@ -69,12 +69,11 @@
  *   await endOfPageReached()
  * }
  *
- * loopcall(callBuilder, { breaker: showTxUntilScreenIsFilled })
+ * loopcall(callBuilder, { filter: showTxUntilScreenIsFilled })
  * ```
  *
  * This example shows a part of the code to implement unlimited scrolling on a
- * webpage showing the last transactions on a Stellar network. As
- * `showTxUntilScreenIsFilled` never returns `true`, the loop never breaks.
+ * webpage showing the last transactions on a Stellar network.
  *
  * **Combining parameters**
  *
