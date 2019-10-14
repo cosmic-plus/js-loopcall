@@ -1,4 +1,4 @@
-"use_strict"
+"use strict"
 /**
  * **Loopcall** is a tiny library that enables unlimited complex queries to
  * Horizon nodes. It takes a _CallBuilder_ and accepts a few optional
