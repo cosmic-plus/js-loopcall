@@ -19,6 +19,12 @@ Versioning](https://semver.org/spec/v2.0.0.html)**. Version syntax is
 backward-compatibility and can be updated to without risk of breakage. For major
 releases, please check this changelog before upgrading.
 
+## 1.4.1 - 2020-04-11
+
+### Fixed
+
+- Internal: Fix "use strict" statement.
+
 ## 1.4.0 - 2019-10-05
 
 ### Added

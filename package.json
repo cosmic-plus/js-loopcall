@@ -1,6 +1,6 @@
 {
   "name": "@cosmic-plus/loopcall",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Implements limitless advanced queries to Stellar Horizon nodes",
   "author": "MisterTicot <mister.ticot@cosmic.plus>",
   "homepage": "https://cosmic.plus/#view:js-loopcall",
@@ -49,19 +49,19 @@
     "publish-release": "npm run check && npm run tag-release && npm run push-release && npm publish"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "eslint": "^6.5.1",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "eslint": "^6.8.0",
     "jasmine": "^3.5.0",
     "nyc": "^14.1.1",
-    "prettier": "^1.18.2",
+    "prettier": "^1.19.1",
     "stellar-sdk": "^4.1.0",
-    "webpack": "^4.40.2",
-    "webpack-cli": "^3.3.8"
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   },
   "dependencies": {
-    "@babel/runtime": "^7.6.2"
+    "@babel/runtime": "^7.9.2"
   }
 }
