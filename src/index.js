@@ -170,18 +170,19 @@ async function loop (callAnswer, limit) {
  * @returns {Array} The fetched records
  */
 async function loopWithBreakpoints (callAnswer, options) {
+  const { limit, breaker, filter } = options
   const records = []
 
   while (callAnswer.records.length) {
     for (let index in callAnswer.records) {
-      if (options.limit && records.length === options.limit) return records
+      if (limit && records.length === limit) return records
       const nextRecord = callAnswer.records[index]
-      if (options.breaker) {
-        const recordTriggerBreak = await options.breaker(nextRecord)
+      if (breaker) {
+        const recordTriggerBreak = await breaker(nextRecord)
         if (recordTriggerBreak) return records
       }
-      if (options.filter) {
-        const recordPassTest = await options.filter(nextRecord)
+      if (filter) {
+        const recordPassTest = await filter(nextRecord)
         if (!recordPassTest) continue
       }
       records.push(nextRecord)
