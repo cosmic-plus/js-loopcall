@@ -55,11 +55,10 @@
  * provided, the records are added to the query results only when it returns
  * `true`.
  *
- * **Iterating over records on-the-fly**
+ * **Iterating over the records on-the-fly**
  *
- * In some situations waiting for the result to be concatenated is not an
- * option. `filter` offers the possibility of iterating over records while they
- * are fetched:
+ * In some situations, waiting for the result to be concatenated is not an
+ * option. This can be done with the `iterate` option:
  *
  * ```js
  * const callBuilder = server.transactions()
@@ -69,7 +68,7 @@
  *   await endOfPageReached()
  * }
  *
- * loopcall(callBuilder, { filter: showTxUntilScreenIsFilled })
+ * loopcall(callBuilder, { iterate: showTxUntilScreenIsFilled })
  * ```
  *
  * This example shows a part of the code to implement unlimited scrolling on a
@@ -97,12 +96,14 @@
  * })
  * ```
  *
- * When both are provided, `breaker` is called before `filter`.
+ * Call order: `breaker` > `filter` > `iterate`.
  *
  * @alias loopcall
  * @param {CallBuilder} callBuilder A CallBuilder object
  * @param {Object} [options]
  * @param {Integer} [options.limit] The maximum number of record to return
+ * @param {function} [options.iterate] A function that is called for each
+ *   (filtered) record.
  * @param {Function} [options.filter] A function that accepts a record argument.
  * It is called with each fetched record. If it returns a true value, the record
  * is added to returned records, else it is discarded.
@@ -161,6 +162,8 @@ async function loop (callAnswer, limit) {
  * @param {Object} callAnswer A resolved CallBuilder.call() object
  * @param {Object} [options]
  * @param {integer} [options.limit] The maximum number of record to return
+ * @param {function} [options.iterate] A function that is called for each
+ *   (filtered) record.
  * @param {function} [options.filter] A function that accept a record argument. It
  *   is called with each fetched record. If it returns a true value, the record
  *   is added to returned records, else it is discarded.
@@ -170,7 +173,7 @@ async function loop (callAnswer, limit) {
  * @returns {Array} The fetched records
  */
 async function loopWithBreakpoints (callAnswer, options) {
-  const { limit, breaker, filter } = options
+  const { limit, breaker, filter, iterate } = options
   const records = []
 
   while (callAnswer.records.length) {
@@ -185,6 +188,7 @@ async function loopWithBreakpoints (callAnswer, options) {
         const recordPassTest = await filter(nextRecord)
         if (!recordPassTest) continue
       }
+      if (iterate) await iterate(nextRecord)
       records.push(nextRecord)
     }
     callAnswer = await callAnswer.next()
