@@ -1,6 +1,6 @@
 {
   "name": "@cosmic-plus/loopcall",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "Implements limitless advanced queries to Stellar Horizon nodes",
   "author": "MisterTicot <mister.ticot@cosmic.plus>",
   "homepage": "https://cosmic.plus/#view:js-loopcall",

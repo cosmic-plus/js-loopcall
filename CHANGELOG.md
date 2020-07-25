@@ -19,6 +19,17 @@ Versioning](https://semver.org/spec/v2.0.0.html)**. Version syntax is
 backward-compatibility and can be updated to without risk of breakage. For major
 releases, please check this changelog before upgrading.
 
+## 1.5.0 - 2020-07-25
+
+### Added
+
+- API: Add `options.iterate`. This function is called on-the-fly over each
+  (filtered) record.
+
+### Changed
+
+- Meta: Improve polyfilling setup.
+
 ## 1.4.1 - 2020-04-11
 
 ### Fixed
