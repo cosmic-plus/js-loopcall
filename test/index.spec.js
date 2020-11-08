@@ -39,7 +39,7 @@ describe("loopcall", () => {
     // Transactions after 2018 for {account}.
     const callBuilder = server.transactions().forAccount(account)
     const records = await loopcall(callBuilder, {
-      breaker: record => record.created_at.substr(0, 4) < 2018
+      breaker: (record) => record.created_at.substr(0, 4) < 2018
     })
     expect(records).toEqual(any(Array))
     expect(records.length).not.toBe(0)
@@ -49,7 +49,7 @@ describe("loopcall", () => {
     // Transactions without memo for {account}.
     const callBuilder = server.transactions().forAccount(account)
     const records = await loopcall(callBuilder, {
-      filter: record => !record.memo
+      filter: (record) => !record.memo
     })
     expect(records).toEqual(any(Array))
     expect(records.length).not.toBe(0)
@@ -66,7 +66,7 @@ describe("loopcall", () => {
     const records = await loopcall(callBuilder, {
       limit: 50,
       breaker: countUntil(250),
-      filter: record => record.type === "create_account"
+      filter: (record) => record.type === "create_account"
     })
     expect(records).toEqual(any(Array))
     expect(records.length).toBe(50)

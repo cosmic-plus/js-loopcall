@@ -80,7 +80,7 @@ To stop fetching records when a condition is met:
 ```js
 const callBuilder = server.transactions().forAccount("GDE...YBX")
 const thisYearTransactions = await loopcall(callBuilder, {
-  breaker: record => record.created_at.substr(0, 4) < 2018
+  breaker: (record) => record.created_at.substr(0, 4) < 2018
 })
 ```
 
@@ -95,7 +95,7 @@ To filter records by condition:
 ```js
 const callBuilder = server.transactions().forAccount("GDE...YBX")
 const transactionsWithoutMemo = await loopcall(callBuilder, {
-  filter: record => !record.memo
+  filter: (record) => !record.memo
 })
 ```
 
@@ -132,7 +132,7 @@ const callBuilder = server.operations().order("asc")
 
 function iterateOver1000RecordsMax() {
   let counter = 0
-  return function() {
+  return function () {
     counter++
     if (counter > 1000) return true
   }
@@ -141,7 +141,7 @@ function iterateOver1000RecordsMax() {
 const the20firstAccountCreations = await loopcall(callBuilder, {
   limit: 20,
   breaker: iterateOver1000RecordsMax(),
-  filter: record => record.type === "create_account"
+  filter: (record) => record.type === "create_account"
 })
 ```
 
